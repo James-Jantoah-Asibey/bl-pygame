@@ -20,9 +20,25 @@ pygame.display.set_caption("Avoid the falling objects")
 clock = pygame.time.Clock() # games run on frame
 FPS = 60 # Game updates 60 times per second
 
+
+
+
+player = Player()
+falling_objects = []
+score = 0
+lives = 3
+
 running = True
 
 while running:
+    clock.tick(FPS)
+    screen.fill('WHITE')  #clear screen
+
+    #player movement
+    keys = pygame.key.get_pressed()
+    player.move(keys)
+    player.draw()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
