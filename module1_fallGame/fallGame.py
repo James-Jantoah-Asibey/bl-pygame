@@ -6,13 +6,13 @@ import random
 pygame.init()
 
 # step 1. set up display
-height = 600
-width = 800
+height = 1000+
+width = 1200
 
 # THIS IS REUSABLE code that represents our game screen
 screen = pygame.display.set_mode((width,height))
 
-# thuis will allow us to show the title of the game when a 
+# this will allow us to show the title of the game when a 
 # user opens our game
 pygame.display.set_caption("Avoid the falling objects")
 
@@ -27,6 +27,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+pygame.quit            
 # Step 2. Create player object
 #object -
-pointGauge = [shooting, playmaking, offfense, speed, height]
+# pointGauge = [shooting, playmaking, offfense, speed, height]
+
+#instructor note
