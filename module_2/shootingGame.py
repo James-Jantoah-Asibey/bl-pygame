@@ -1,5 +1,5 @@
 import pygame
-
+import random
 pygame.init()
 
 screen = pygame.display.set_mode((800,600))
@@ -36,13 +36,34 @@ class Bullets():
 class Enemy():
     def __init__ (self):
         super().__init(self)
-        self.image = pygame.Surface
+        self.image = pygame.Surface((50, 50))
+        self.image.fill((0, 255, 0))
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(0, 759)
+        self.rect.y = random.randint(-200, -50)
+
+player = Player() 
+bullets = pygame.sprite.Group()
+enemies = pygame.sprite.Group()
+for _ in range(5):
+    enemy = Enemy()
+    enemies.add(enemy)
 
 
+all_spirites = pygame.sprite.Group()
+player = Player()
 
+bullets = pygame.sprite.Group()
 
+enemies = pygame.sprite.Group()
+
+for _ in range(5):
+    enemy = Enemy()
+    all_sprites.add(enemy)
+    enemies.add(enemy)
 
 running = True
+clock.tick(FPS)
 
 while running:
     for event in pygame.event.get():
