@@ -65,10 +65,35 @@ for _ in range(5):
 running = True
 clock.tick(FPS)
 
+for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+        running = False
+    if event.type == pygame.K_SPACE:
+        player.shoot()    
+
+all_sprites = pygame.sprite.Group()
+player = Player()
+all_sprites.add(player)
+
+bullets = pygame.sprite
+
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
            running = False
+
+
+
+
+
+
+
+
+
+
+
 
 pygame.quit()           
 
