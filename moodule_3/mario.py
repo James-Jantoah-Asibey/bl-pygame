@@ -12,8 +12,9 @@ clock = pygame.time.Clock()
 pygame.display.set_caption('Fario')
 # charater
 class player:
-    def __init__(self):
+    def __init__(self, x, y):
         size = (40,60)
+        self.rect = pygame.Rect((x,y), size)
         position =(100, h-150)
         vel =[0, 0]
         speed = 5
@@ -21,6 +22,29 @@ class player:
         gravity = 1
         on_ground = False
 
+    def input(self, keys):
+        if keys[pygame.K_LEFT]:
+            self.vel[0] =-self.speed
+        elif keys[pygame.K_RIGHT]:
+            self.vel[0] = self.speed
+        else:
+            self.vel[0] = 0
+
+        if keys[pygame.K_SPACE] and self.onGround:
+            self.vel[1] = self.jump
+        
+        def apply_gravity(self, platforms):
+            self.vel[1]=self.gravity
+            self.rect.x +=self.gravity
+
+scroll_x = 0
+
+platform = [
+    pygame.Rect(0, h-100, 2000, 40),
+    pygame.Rect(300, h-200, 200, 40),
+    pygame.Rect(600, h-300, 200, 40),
+    pygame.Rect(900, h-400, 200, 40),
+]
 
 running = True
 # screen color
@@ -32,4 +56,4 @@ while running:
         if event.type == pygame.QUIT:
             running = False 
             sys.exit()
-    pygame.dislpay.flip()        
+    pygame.display.flip()        
